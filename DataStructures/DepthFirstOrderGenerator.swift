@@ -10,12 +10,23 @@
 struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
     Sequence where Value.Iterator.Element == Key {
 
+    var unvisitedGraph: [Key: Value]
+    var stack: Stack<Key>
+    
     /// Constructs a `DepthFirstOrderGenerator` with the given graph and start
     /// node.
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph: [Key: Value], start: Key) {
+    init?(graph unvisitedGraph: [Key: Value], start: Key) {
+        if unvisitedGraph[start] == nil {
+            return nil
+        }
+        
+        self.unvisitedGraph = unvisitedGraph
+        
+        stack = Stack<Key>()
+        stack.push(start)
     }
 
     func makeIterator() -> DepthFirstOrderGenerator<Key, Value> {
@@ -23,7 +34,20 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
     }
 
     mutating func next() -> Key? {
-        // TODO: Replace/remove the following line in your implementation.
+        while let element = stack.pop() {
+            guard let neighbors = unvisitedGraph[element] else {
+                continue
+            }
+            
+            for neighbor in neighbors.reversed() {
+                stack.push(neighbor)
+            }
+            
+            unvisitedGraph.removeValue(forKey: element)
+            
+            return element
+        }
+        
         return nil
     }
 }
