@@ -1,11 +1,11 @@
 CS3217 Problem Set 1
 ==
 
-**Name:** Your name
+**Name:** Jason Chong Yi Sheng
 
-**Matric No:** Your matric no
+**Matric No:** A0164721J
 
-**Tutor:** Your tutor's name
+**Tutor:** Leong Wai Kay
 
 ## Instructions for Students
 
@@ -22,7 +22,9 @@ CS3217 Problem Set 1
 
 ## Problem 1: Swift Collections
 
-Your answer here
+If a key does not implement the  `Hashable` protocol, the `Dictionary` would not be able to compute a hash value for keys. Since a `Dictionary` works by finding an associated value based on the hash of the key, not being able to compute a hash value for a given key would prevent `Dictionary` look up from working correctly. In the first place, if a key cannot be hashed, then the `Dictionary` would not know where to store its associated value.
+
+By ensuring that the keys implement the `Hashable`  protocol, `Dictionary` will be able to get the hash value of any key using the methods exposed by the `Hashable` protocol.
 
 ## Problem 3: Graph Traversal
 
