@@ -25,6 +25,10 @@
 		765CFB9A1C37DE7600FA2E0E /* graph_cycle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DD36A2E1A60E90800746BF6 /* graph_cycle.plist */; };
 		765CFB9B1C37DE7600FA2E0E /* graph_example.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6DD36A301A60E90800746BF6 /* graph_example.plist */; };
 		765CFBA01C4BEAD400FA2E0E /* graph_empty.plist in Resources */ = {isa = PBXBuildFile; fileRef = 765CFB9D1C4BEA0100FA2E0E /* graph_empty.plist */; };
+		DA69AB5221EE2E21001013CC /* graph_disjoint.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA69AB5121EE2E21001013CC /* graph_disjoint.plist */; };
+		DA69AB5321EE2E99001013CC /* graph_disjoint.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA69AB5121EE2E21001013CC /* graph_disjoint.plist */; };
+		DAE289D721EE03B9001ECD75 /* graph_linkedlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE289D621EE03B9001ECD75 /* graph_linkedlist.plist */; };
+		DAE289D821EE053D001ECD75 /* graph_linkedlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAE289D621EE03B9001ECD75 /* graph_linkedlist.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,8 @@
 		6DD36A2E1A60E90800746BF6 /* graph_cycle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph_cycle.plist; sourceTree = "<group>"; };
 		6DD36A301A60E90800746BF6 /* graph_example.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph_example.plist; sourceTree = "<group>"; };
 		765CFB9D1C4BEA0100FA2E0E /* graph_empty.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph_empty.plist; sourceTree = "<group>"; };
+		DA69AB5121EE2E21001013CC /* graph_disjoint.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph_disjoint.plist; sourceTree = "<group>"; };
+		DAE289D621EE03B9001ECD75 /* graph_linkedlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = graph_linkedlist.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,7 +146,9 @@
 		413DC0721A5F62C300CC4AC3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DAE289D621EE03B9001ECD75 /* graph_linkedlist.plist */,
 				6DD36A2E1A60E90800746BF6 /* graph_cycle.plist */,
+				DA69AB5121EE2E21001013CC /* graph_disjoint.plist */,
 				6DD36A301A60E90800746BF6 /* graph_example.plist */,
 				765CFB9D1C4BEA0100FA2E0E /* graph_empty.plist */,
 				413DC0731A5F62C300CC4AC3 /* Info.plist */,
@@ -232,6 +240,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA69AB5321EE2E99001013CC /* graph_disjoint.plist in Resources */,
+				DAE289D821EE053D001ECD75 /* graph_linkedlist.plist in Resources */,
 				765CFBA01C4BEAD400FA2E0E /* graph_empty.plist in Resources */,
 				765CFB9A1C37DE7600FA2E0E /* graph_cycle.plist in Resources */,
 				765CFB9B1C37DE7600FA2E0E /* graph_example.plist in Resources */,
@@ -245,6 +255,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAE289D721EE03B9001ECD75 /* graph_linkedlist.plist in Resources */,
+				DA69AB5221EE2E21001013CC /* graph_disjoint.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +389,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -401,7 +414,7 @@
 				INFOPLIST_FILE = DataStructures/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nus.cs3217.matricno.DataStructures;
+				PRODUCT_BUNDLE_IDENTIFIER = nus.cs3217.a0164721j.DataStructures;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -415,7 +428,7 @@
 				INFOPLIST_FILE = DataStructures/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = nus.cs3217.matricno.DataStructures;
+				PRODUCT_BUNDLE_IDENTIFIER = nus.cs3217.a0164721j.DataStructures;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;

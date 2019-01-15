@@ -18,12 +18,26 @@ class BreadthFirstOrderGeneratorTests: XCTestCase {
             ["A", "B", "C", "D", "E"],
             "The BFS for \(graphFileName) is wrong!")
     }
+    
+    func testDisjointGraph() {
+        let graphFileName = "graph_disjoint"
+        XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),
+                       ["A", "B", "C"],
+                       "The BFS for \(graphFileName) is wrong!")
+    }
 
     func testExampleGraph() {
         let graphFileName = "graph_example"
         XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),
             ["A", "B", "C", "E", "D", "F", "G"],
             "The BFS for \(graphFileName) is wrong!")
+    }
+    
+    func testEmptyGraph() {
+        let graphFileName = "graph_empty"
+        XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),
+                       [],
+                       "The BFS for \(graphFileName) is not empty!")
     }
 
     private func getResultantNodesForGraph(_ fileName: String, startNode: String) -> [String] {
