@@ -32,6 +32,13 @@ class DepthFirstOrderGeneratorTests: XCTestCase {
             ["A", "B", "D", "F", "E", "C", "G"],
             "The DFS for \(graphFileName) is wrong!")
     }
+    
+    func testExampleGraphInvalidStartNode() {
+        let graphFileName = "graph_example"
+        XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "Z"),
+                       [],
+                       "The DFS for \(graphFileName) with an invalid start node is not empty!")
+    }
 
     func testEmptyGraph() {
         let graphFileName = "graph_empty"
