@@ -30,4 +30,10 @@ By ensuring that the keys implement the `Hashable`  protocol, `Dictionary` will 
 
 ## Problem 3.3
 
-Your answer here
+Exceptions are prefered over non-compound special return values such as `nil` when the special values are not obvious, not consistent or when all return values are legal. Special return values also can't contain information without having a special return type to store it, which `nil` does not allow.
+
+This can be illustrated using the use of `nil` in this problem set.
+
+`nil` can be used in the failable initializer as it is obvious as `nil` is not a legal generator. 
+
+For methods such as `peek()` and `pop()`  which return the element in the `stack`/`queue` wrapped in an optional, even if the element is `nil` itself, the methods will return it wrapped in an optional instead of just returning `nil` on its own. For such methods, the only possible user error is using them on an empty `queue`/`stack`, so additional information to distinguish between user errors is also not required. Hence, `nil` is not a legal return value in this sense and can be used as a special return value here.
