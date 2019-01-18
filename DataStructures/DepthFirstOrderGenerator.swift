@@ -18,12 +18,16 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph unvisitedGraph: [Key: Value], start: Key) {
-        if unvisitedGraph[start] == nil {
+    init?(graph: [Key: Value], start: Key) {
+        if graph[start] == nil {
             return nil
         }
         
-        self.unvisitedGraph = unvisitedGraph
+        if !GraphUtil.isValid(graph: graph) {
+            return nil
+        }
+        
+        self.unvisitedGraph = graph
         
         stack = Stack<Key>()
         stack.push(start)
@@ -35,12 +39,18 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
 
     mutating func next() -> Key? {
         while let element = stack.pop() {
-            guard let neighbors = unvisitedGraph[element] else {
+            /// If the element does not exist in unvisitedGraph, then skip it
+            /// as it has already been visited.
+            guard let neighbours = unvisitedGraph[element] else {
                 continue
             }
             
-            for neighbor in neighbors.reversed() {
-                stack.push(neighbor)
+            /// The neighboring nodes are pushed into the stack in reverse
+            /// order to ensure that the neighboring nodes are visited in
+            /// the order in which they appear. This is done to conform
+            /// with the requirements.
+            for neighbour in neighbours.reversed() {
+                stack.push(neighbour)
             }
             
             unvisitedGraph.removeValue(forKey: element)

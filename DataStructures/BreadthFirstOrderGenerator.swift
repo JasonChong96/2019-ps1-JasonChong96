@@ -18,12 +18,16 @@ struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorPro
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph unvisitedGraph: [Key: Value], start: Key) {
-        if unvisitedGraph[start] == nil {
+    init?(graph: [Key: Value], start: Key) {
+        if graph[start] == nil {
             return nil
         }
         
-        self.unvisitedGraph = unvisitedGraph
+        if !GraphUtil.isValid(graph: graph) {
+            return nil
+        }
+        
+        self.unvisitedGraph = graph
 
         queue = Queue<Key>()
         queue.enqueue(start)
@@ -35,12 +39,14 @@ struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorPro
 
     mutating func next() -> Key? {
         while let element = queue.dequeue() {
-            guard let neighbors = unvisitedGraph[element] else {
+            /// If the element does not exist in unvisitedGraph, then skip it
+            /// as it has already been visited.
+            guard let neighbours = unvisitedGraph[element] else {
                 continue
             }
             
-            for neighbor in neighbors {
-                queue.enqueue(neighbor)
+            for neighbour in neighbours {
+                queue.enqueue(neighbour)
             }
             
             unvisitedGraph.removeValue(forKey: element)

@@ -37,7 +37,7 @@ class BreadthFirstOrderGeneratorTests: XCTestCase {
         let graphFileName = "graph_example"
         XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "Z"),
                        [],
-                       "The BFS for \(graphFileName) with an invalid start node is not empty!")
+                       "BFS was done for \(graphFileName) even though an invalid start node was provided")
     }
     
     func testEmptyGraph() {
@@ -45,6 +45,13 @@ class BreadthFirstOrderGeneratorTests: XCTestCase {
         XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),
                        [],
                        "The BFS for \(graphFileName) is not empty!")
+    }
+    
+    func testInvalidEdgeGraph() {
+        let graphFileName = "graph_invalidedge"
+        XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),
+                       [],
+                       "BFS was done for \(graphFileName) even though it has an invalid edge!")
     }
 
     private func getResultantNodesForGraph(_ fileName: String, startNode: String) -> [String] {
