@@ -5,8 +5,8 @@ import XCTest
 
 class QueueTests: XCTestCase {
 
-    let one = "1"
-    let two = "2"
+    let testElement1 = "1"
+    let testElement2 = "2"
 
     func testEnqueue() {
         var queue = Queue<String>()
@@ -18,22 +18,24 @@ class QueueTests: XCTestCase {
     func testDequeue() {
         var queue = Queue<String>()
         XCTAssertNil(queue.dequeue(), "An item is dequeued from an empty queue!")
-        queue.enqueue(one)
-        queue.enqueue(two)
-        XCTAssertEqual(one, queue.dequeue(), "The incorrect item has been dequeued!")
-        XCTAssertEqual(two, queue.dequeue(), "The incorrect item has been dequeued!")
+        queue.enqueue(testElement1)
+        queue.enqueue(testElement2)
+        XCTAssertEqual(testElement1, queue.dequeue(), "The incorrect item has been dequeued!")
+        XCTAssertEqual(testElement2, queue.dequeue(), "The incorrect item has been dequeued!")
         XCTAssertNil(queue.dequeue(), "An item is not dequeued correctly!")
     }
 
     func testPeek() {
         var queue = Queue<String>()
         XCTAssertNil(queue.peek(), "An item was returned by peek on an empty queue!")
-        queue.enqueue(one)
-        XCTAssertEqual(one, queue.peek(), "An incorrect item was returned by peek on a queue with one element!")
-        queue.enqueue(two)
-        XCTAssertEqual(one, queue.peek(), "An incorrect item was returned by peek on a queue with two elements!")
+        queue.enqueue(testElement1)
+        XCTAssertEqual(testElement1, queue.peek(),
+                       "An incorrect item was returned by peek on a queue with one element!")
+        queue.enqueue(testElement2)
+        XCTAssertEqual(testElement1, queue.peek(),
+                       "An incorrect item was returned by peek on a queue with two elements!")
         queue.dequeue()
-        XCTAssertEqual(two, queue.peek(), "An incorrect item was returned by peek after dequeue!")
+        XCTAssertEqual(testElement2, queue.peek(), "An incorrect item was returned by peek after dequeue!")
     }
 
     func testCount() {
@@ -47,7 +49,7 @@ class QueueTests: XCTestCase {
     func testIsEmpty() {
         var queue = Queue<String>()
         XCTAssertTrue(queue.isEmpty, "isEmpty is false for an empty queue!")
-        queue.enqueue(one)
+        queue.enqueue(testElement1)
         XCTAssertFalse(queue.isEmpty, "isEmpty is true for a queue with one item!")
         queue.dequeue()
         XCTAssertTrue(queue.isEmpty, "isEmpty is false for an empty queue after dequeue!")
@@ -55,8 +57,8 @@ class QueueTests: XCTestCase {
 
     func testRemoveAll() {
         var queue = Queue<String>()
-        queue.enqueue(one)
-        queue.enqueue(two)
+        queue.enqueue(testElement1)
+        queue.enqueue(testElement2)
         queue.removeAll()
         XCTAssertTrue(queue.isEmpty, "The items in the queue have not been removed correctly!")
     }
@@ -64,8 +66,9 @@ class QueueTests: XCTestCase {
     func testToArray() {
         var queue = Queue<String>()
         XCTAssertEqual(queue.toArray(), [], "toArray result is not empty for an empty queue!")
-        queue.enqueue(one)
-        queue.enqueue(two)
-        XCTAssertEqual(queue.toArray(), [one, two], "toArray does not return the correct elements in order!")
+        queue.enqueue(testElement1)
+        queue.enqueue(testElement2)
+        XCTAssertEqual(queue.toArray(), [testElement1, testElement2],
+                       "toArray does not return the correct elements in order!")
     }
 }
