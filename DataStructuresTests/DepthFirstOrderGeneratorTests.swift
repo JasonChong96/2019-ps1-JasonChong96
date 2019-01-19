@@ -18,7 +18,7 @@ class DepthFirstOrderGeneratorTests: XCTestCase {
             ["A", "B", "C", "D", "E"],
             "The DFS for \(graphFileName) is wrong!")
     }
-    
+
     func testDisjointGraph() {
         let graphFileName = "graph_disjoint"
         XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),
@@ -32,7 +32,7 @@ class DepthFirstOrderGeneratorTests: XCTestCase {
             ["A", "B", "D", "F", "E", "C", "G"],
             "The DFS for \(graphFileName) is wrong!")
     }
-    
+
     func testExampleGraphInvalidStartNode() {
         let graphFileName = "graph_example"
         XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "Z"),
@@ -46,7 +46,7 @@ class DepthFirstOrderGeneratorTests: XCTestCase {
                        [],
                        "The DFS for \(graphFileName) is not empty!")
     }
-    
+
     func testInvalidEdgeGraph() {
         let graphFileName = "graph_invalidedge"
         XCTAssertEqual(getResultantNodesForGraph(graphFileName, startNode: "A"),

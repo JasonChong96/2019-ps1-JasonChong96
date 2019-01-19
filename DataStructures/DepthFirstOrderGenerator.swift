@@ -12,7 +12,6 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
 
     var unvisitedGraph: [Key: Value]
     var stack: Stack<Key>
-    
     /// Constructs a `DepthFirstOrderGenerator` with the given graph and start
     /// node.
     /// - Parameters:
@@ -22,13 +21,12 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
         if graph[start] == nil {
             return nil
         }
-        
+
         if !GraphUtil.isValid(graph: graph) {
             return nil
         }
-        
+
         self.unvisitedGraph = graph
-        
         stack = Stack<Key>()
         stack.push(start)
     }
@@ -44,7 +42,7 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
             guard let neighbours = unvisitedGraph[element] else {
                 continue
             }
-            
+
             /// The neighboring nodes are pushed into the stack in reverse
             /// order to ensure that the neighboring nodes are visited in
             /// the order in which they appear. This is done to conform
@@ -52,12 +50,12 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
             for neighbour in neighbours.reversed() {
                 stack.push(neighbour)
             }
-            
+
             unvisitedGraph.removeValue(forKey: element)
-            
+
             return element
         }
-        
+
         return nil
     }
 }

@@ -7,7 +7,7 @@
  - Date: 2018
  */
 struct Queue<T> {
-    
+
     var items: [T] = []
 
     /// Adds an element to the tail of the queue.
@@ -22,7 +22,7 @@ struct Queue<T> {
         if isEmpty {
             return nil
         }
-        
+
         return items.removeFirst()
     }
 
@@ -32,7 +32,7 @@ struct Queue<T> {
         if isEmpty {
             return nil
         }
-        
+
         return items[0]
     }
 

@@ -4,7 +4,7 @@ import XCTest
 @testable import DataStructures
 
 class QueueTests: XCTestCase {
-    
+
     let one = "1"
     let two = "2"
 
@@ -41,7 +41,7 @@ class QueueTests: XCTestCase {
         queue.enqueue("1")
         queue.enqueue("2")
         queue.enqueue("3")
-        XCTAssertEqual(queue.count, 3, "The queue's length is not correct!");
+        XCTAssertEqual(queue.count, 3, "The queue's length is not correct!")
     }
 
     func testIsEmpty() {

@@ -9,7 +9,7 @@
  */
 struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
     Sequence where Value.Iterator.Element == Key {
-    
+
     var unvisitedGraph: [Key: Value]
     var queue: Queue<Key>
 
@@ -22,11 +22,11 @@ struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorPro
         if graph[start] == nil {
             return nil
         }
-        
+
         if !GraphUtil.isValid(graph: graph) {
             return nil
         }
-        
+
         self.unvisitedGraph = graph
 
         queue = Queue<Key>()
@@ -44,16 +44,16 @@ struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorPro
             guard let neighbours = unvisitedGraph[element] else {
                 continue
             }
-            
+
             for neighbour in neighbours {
                 queue.enqueue(neighbour)
             }
-            
+
             unvisitedGraph.removeValue(forKey: element)
-            
+
             return element
         }
-        
+
         return nil
     }
 }

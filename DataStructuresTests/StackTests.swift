@@ -4,7 +4,7 @@ import XCTest
 @testable import DataStructures
 
 class StackTests: XCTestCase {
-    
+
     let one = 1
     let two = 2
 
@@ -40,7 +40,7 @@ class StackTests: XCTestCase {
         stack.push(1)
         stack.push(2)
         stack.push(3)
-        XCTAssertEqual(stack.count, 3, "The stack's length is not correct!");
+        XCTAssertEqual(stack.count, 3, "The stack's length is not correct!")
     }
 
     func testIsEmpty() {

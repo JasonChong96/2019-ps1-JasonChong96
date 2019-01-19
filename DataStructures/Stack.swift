@@ -7,7 +7,7 @@
  - Date: 2018
  */
 struct Stack<T> {
-    
+
     var items: [T] = []
 
     /// Adds an element to the top of the stack.
@@ -22,7 +22,7 @@ struct Stack<T> {
         if isEmpty {
             return nil
         }
-        
+
         return items.removeLast()
     }
 
