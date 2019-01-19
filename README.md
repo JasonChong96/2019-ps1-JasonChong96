@@ -31,8 +31,8 @@ By ensuring that the keys implement the `Hashable`  protocol, `Dictionary` will 
 ## Additional Considerations
 
 A graph with an invalid edge (i.e connected to a node that is not in the graph) is considered invalid and the BFS/DFS 
-generators will not be initialized. This behaviour was chosen as passing in as doing this is considered as passing in
-an invalid input to the failable initializer which should result in `nil`. This conforms to the behaviour of the
+generators will not be initialized. This behaviour was chosen as passing in an invalid graph should be considered as
+passing in an invalid input to the failable initializer which should result in `nil`. This conforms to the behaviour of the
 failable initializers as stated in the question for Problem 3.3.
 
 > PS1 Problem 3 Question 3
