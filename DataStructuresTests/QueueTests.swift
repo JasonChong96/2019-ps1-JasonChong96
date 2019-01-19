@@ -15,6 +15,13 @@ class QueueTests: XCTestCase {
         XCTAssertEqual(queue.toArray(), ["1"], "The item is not enqueued correctly!")
     }
 
+    func testEnqueueNil() {
+        var queue = Queue<String?>()
+        queue.enqueue(nil)
+
+        XCTAssertEqual(queue.toArray(), [nil], "The element nil is not enqueued correctly!")
+    }
+
     func testDequeue() {
         var queue = Queue<String>()
         XCTAssertNil(queue.dequeue(), "An item is dequeued from an empty queue!")
@@ -23,6 +30,13 @@ class QueueTests: XCTestCase {
         XCTAssertEqual(testElement1, queue.dequeue(), "The incorrect item has been dequeued!")
         XCTAssertEqual(testElement2, queue.dequeue(), "The incorrect item has been dequeued!")
         XCTAssertNil(queue.dequeue(), "An item is not dequeued correctly!")
+    }
+
+    func testDequeueNil() {
+        var queue = Queue<String?>()
+        queue.enqueue(nil)
+
+        XCTAssertEqual(queue.dequeue(), Optional(nil), "The element nil is not dequeued correctly!")
     }
 
     func testPeek() {

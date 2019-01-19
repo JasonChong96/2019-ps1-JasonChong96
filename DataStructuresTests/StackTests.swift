@@ -15,6 +15,13 @@ class StackTests: XCTestCase {
         XCTAssertEqual(stack.toArray(), [1], "The item is not pushed correctly!")
     }
 
+    func testPushNil() {
+        var queue = Queue<Int?>()
+        queue.enqueue(nil)
+
+        XCTAssertEqual(queue.toArray(), [nil], "The element nil is not pushed correctly!")
+    }
+
     func testPop() {
         var stack = Stack<Int>()
         XCTAssertNil(stack.pop(), "An item has been popped from an empty stack!")
@@ -23,6 +30,13 @@ class StackTests: XCTestCase {
         XCTAssertEqual(testElement2, stack.pop(), "The incorrect item is popped!")
         XCTAssertEqual(testElement1, stack.pop(), "The incorrect item is popped!")
         XCTAssertNil(stack.pop(), "An item is not popped correctly!")
+    }
+
+    func testPopNil() {
+        var queue = Queue<Int?>()
+        queue.enqueue(nil)
+
+        XCTAssertEqual(queue.dequeue(), Optional(nil), "The element nil is not popped correctly!")
     }
 
     func testPeek() {
