@@ -7,7 +7,7 @@
  - Authors: CS3217
  - Date: 2018
  */
-struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
+public struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
     Sequence where Value.Iterator.Element == Key {
 
     var unvisitedGraph: [Key: Value]
@@ -18,7 +18,7 @@ struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorPro
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph: [Key: Value], start: Key) {
+    public init?(graph: [Key: Value], start: Key) {
         if graph[start] == nil {
             return nil
         }
@@ -33,11 +33,11 @@ struct BreadthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorPro
         queue.enqueue(start)
     }
 
-    func makeIterator() -> BreadthFirstOrderGenerator<Key, Value> {
+    public func makeIterator() -> BreadthFirstOrderGenerator<Key, Value> {
         return self
     }
 
-    mutating func next() -> Key? {
+    public mutating func next() -> Key? {
         while let element = queue.dequeue() {
             /// If the element does not exist in unvisitedGraph, then skip it
             /// as it has already been visited.

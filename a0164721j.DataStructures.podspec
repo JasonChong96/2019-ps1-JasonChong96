@@ -27,7 +27,7 @@ BreadthFirstTraversal and DepthFirstTraversal generators for Dictionaries."
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = "DataStructures from CS3217 PS1"
 
-  s.homepage     = "https://github.com/cs3217-1819/2019-ps1-JasonChong96/tree/cocoapod"
+  s.homepage     = "https://github.com/JasonChong96/2019-ps1-JasonChong96.git"
 
 
   # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -78,7 +78,7 @@ BreadthFirstTraversal and DepthFirstTraversal generators for Dictionaries."
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/cs3217-1819/2019-ps1-JasonChong96.git", :branch => "cocoapod" }
+  s.source       = { :git => "https://github.com/JasonChong96/2019-ps1-JasonChong96.git", :tag => "master" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

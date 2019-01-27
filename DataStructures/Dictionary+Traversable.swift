@@ -1,6 +1,6 @@
 // Copyright (c) 2018 NUS CS3217. All rights reserved.
 
-extension Dictionary where Value: Collection, Value.Iterator.Element == Key {
+public extension Dictionary where Value: Collection, Value.Iterator.Element == Key {
     typealias Node = Key
     typealias AdjacentNodes = Value
 
@@ -9,7 +9,7 @@ extension Dictionary where Value: Collection, Value.Iterator.Element == Key {
     /// - Parameter node: The start node for the traversal
     /// - Returns: BreadthFirstOrderGenerator that starts from the given node
     ///   and traverses through the collection's nodes in breadth-first order
-    func breadthFirstOrderGeneratorFromNode(_ node: Node) -> BreadthFirstOrderGenerator<Node, AdjacentNodes>? {
+    public func breadthFirstOrderGeneratorFromNode(_ node: Node) -> BreadthFirstOrderGenerator<Node, AdjacentNodes>? {
         return BreadthFirstOrderGenerator(graph: self, start: node)
     }
 
@@ -18,7 +18,7 @@ extension Dictionary where Value: Collection, Value.Iterator.Element == Key {
     /// - Parameter node: The start node for the traversal
     /// - Returns: DepthFirstOrderGenerator that starts from the given node and
     ///   traverses through the collection's nodes in depth-first order
-    func depthFirstOrderGeneratorFromNode(_ node: Node) -> DepthFirstOrderGenerator<Node, AdjacentNodes>? {
+    public func depthFirstOrderGeneratorFromNode(_ node: Node) -> DepthFirstOrderGenerator<Node, AdjacentNodes>? {
         return DepthFirstOrderGenerator(graph: self, start: node)
     }
 
@@ -26,7 +26,7 @@ extension Dictionary where Value: Collection, Value.Iterator.Element == Key {
     /// start node.
     /// - Parameter node: The start node for the traversal
     /// - Returns: list of nodes in the order that they are traversed
-    func nodesSequenceInBreadthFirstOrderFromNode(_ node: Node) -> [Node] {
+    public func nodesSequenceInBreadthFirstOrderFromNode(_ node: Node) -> [Node] {
         guard let bfsGenerator = breadthFirstOrderGeneratorFromNode(node) else {
             return []
         }
@@ -38,7 +38,7 @@ extension Dictionary where Value: Collection, Value.Iterator.Element == Key {
     /// start node.
     /// - Parameter node: The start node for the traversal
     /// - Returns: list of nodes in the order that they are traversed
-    func nodesSequenceInDepthFirstOrderFromNode(_ node: Node) -> [Node] {
+    public func nodesSequenceInDepthFirstOrderFromNode(_ node: Node) -> [Node] {
         guard let dfsGenerator = depthFirstOrderGeneratorFromNode(node) else {
             return []
         }

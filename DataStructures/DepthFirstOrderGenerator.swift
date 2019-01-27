@@ -7,7 +7,7 @@
  - Authors: CS3217
  - Date: 2018
  */
-struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
+public struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProtocol,
     Sequence where Value.Iterator.Element == Key {
 
     var unvisitedGraph: [Key: Value]
@@ -17,7 +17,7 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
     /// - Parameters:
     ///   - graph: A dictionary of node to adjacency list pairs.
     ///   - start: The start node.
-    init?(graph: [Key: Value], start: Key) {
+    public init?(graph: [Key: Value], start: Key) {
         if graph[start] == nil {
             return nil
         }
@@ -31,11 +31,11 @@ struct DepthFirstOrderGenerator<Key: Hashable, Value: Collection>: IteratorProto
         stack.push(start)
     }
 
-    func makeIterator() -> DepthFirstOrderGenerator<Key, Value> {
+    public func makeIterator() -> DepthFirstOrderGenerator<Key, Value> {
         return self
     }
 
-    mutating func next() -> Key? {
+    public mutating func next() -> Key? {
         while let element = stack.pop() {
             /// If the element does not exist in unvisitedGraph, then skip it
             /// as it has already been visited.
