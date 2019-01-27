@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "a0164721j.DataStructures"
-  s.version      = "0.0.1"
+  s.version      = "0.0.3"
   s.summary      = "DataStructures provides a Stack ADT and a QueueADT along with 
 BreadthFirstTraversal and DepthFirstTraversal generators for Dictionaries."
 

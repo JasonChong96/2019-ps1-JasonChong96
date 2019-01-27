@@ -10,6 +10,10 @@ public struct Queue<T> {
 
     private var items: [T] = []
 
+    public init() {
+        
+    }
+
     /// Adds an element to the tail of the queue.
     /// - Parameter item: The element to be added to the queue
     public mutating func enqueue(_ item: T) {
